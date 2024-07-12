@@ -51,7 +51,7 @@
     - Cause: Actions like vaccination, lockdown, social distancing, and quarantine.
     - Effect: Changes in the number of sick, recovered, and dead turtles.
    
-##Visuals
+### Illustration
 
 <img width="1200" alt="image" src="https://github.com/user-attachments/assets/b688fdbb-7bba-43a4-b58b-42a0197b70a2">
 
