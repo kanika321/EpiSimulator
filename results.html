@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+    <style>
+        /* General body styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        /* Container for the results */
+        .results_container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Heading styles */
+        .results_container h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        /* Result list styles */
+        .result_list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .result_list li {
+            margin-bottom: 10px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <div class="results_container">
+        <h3>Results</h3>
+        <div id="userAnswers"></div>
+        <div id="correctAnswers"></div>
+    </div>
+
+    <script>
+        function getQueryParams() {
+            const params = new URLSearchParams(window.location.search);
+            const answers = {};
+            for (const [key, value] of params.entries()) {
+                answers[key] = value;
+            }
+            return answers;
+        }
+
+        function displayResults() {
+            const answers = getQueryParams();
+            const userAnswersDiv = document.getElementById('userAnswers');
+            const correctAnswersDiv = document.getElementById('correctAnswers');
+
+            // Display user's answers
+            userAnswersDiv.innerHTML = '<h4>Your Answers:</h4><ul class="result_list">';
+            for (const [question, answer] of Object.entries(answers)) {
+                userAnswersDiv.innerHTML += `<li>${question}: ${answer}</li>`;
+            }
+            userAnswersDiv.innerHTML += '</ul>';
+
+            // Display correct answers
+            correctAnswersDiv.innerHTML = '<h4>Correct Answers:</h4><ul class="result_list">';
+            correctAnswersDiv.innerHTML += '<li>Question 1: B) Epidemic progression</li>';
+            correctAnswersDiv.innerHTML += '<li>Question 2: C) Natural Remedies</li>';
+            correctAnswersDiv.innerHTML += '<li>Question 3: B) The susceptible turtle gets infected</li>';
+            correctAnswersDiv.innerHTML += '</ul>';
+        }
+
+        // Call function to display results
+        displayResults();
+    </script>
+</body>
+</html>
