@@ -53,6 +53,4 @@
    
 ### Illustration
 
-<img width="1435" alt="Screenshot 2024-07-17 at 6 44 46 PM" src="https://github.com/user-attachments/assets/7e07174b-1258-4160-b644-d098b0e441fe">
-
-
+ <img width="1415" alt="image" src="https://github.com/user-attachments/assets/f7eb435b-a43a-44dc-ba7b-b8d17a283ef6">
