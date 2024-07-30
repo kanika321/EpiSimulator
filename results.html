@@ -11,13 +11,13 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            background-color: #BACFF3;
         }
 
         /* Container for the results */
         .results_container {
-            max-width: 800px;
-            margin: 20px auto;
+            max-width: 1320px;;
+            margin: 17px auto;
             padding: 20px;
             background-color: #fff;
             border-radius: 8px;
@@ -25,9 +25,10 @@
         }
 
         /* Heading styles */
-        .results_container h3 {
+        .results_container h1 {
             margin-top: 0;
-            color: #333;
+            color: black;
+            text-align: center; 
         }
 
         /* Result list styles */
@@ -40,13 +41,34 @@
             margin-bottom: 10px;
             font-size: 1.2em;
         }
+
+        .question_section {
+            margin-bottom: 50px;
+        }
+
+        .question_section h4 {
+            margin: 0;
+        }
+
+        .question_section p {
+            margin: 5px 0;
+        }
+
+        .final_score {
+            text-align: center; 
+            font-size: 16px;
+        }
+
+
+       
     </style>
 </head>
 <body>
     <div class="results_container">
-        <h3>Results</h3>
-        <div id="userAnswers"></div>
-        <div id="correctAnswers"></div>
+        <h1>Results</h1>
+        <div id="questions"></div>
+        <div id="score"></div>
+        <div id="remarks"></div>
     </div>
 
     <script>
@@ -61,23 +83,89 @@
 
         function displayResults() {
             const answers = getQueryParams();
-            const userAnswersDiv = document.getElementById('userAnswers');
-            const correctAnswersDiv = document.getElementById('correctAnswers');
+            const questionsDiv = document.getElementById('questions');
+            const scoreDiv = document.getElementById('score');
+            const remarksDiv = document.getElementById('remarks');
 
-            // Display user's answers
-            userAnswersDiv.innerHTML = '<h4>Your Answers:</h4><ul class="result_list">';
-            for (const [question, answer] of Object.entries(answers)) {
-                userAnswersDiv.innerHTML += `<li>${question}: ${answer}</li>`;
+            const questions = [
+                {
+                    question: "Q1. Can epidemics only affect the sick and elderly?",
+                    correctAnswer: "B",
+                    explanation: " Epidemics can affect people of all ages and health conditions, not just the sick and elderly. Although the sick and elderly are more susceptible to severe symptoms, the virus can infect anyone, making it essential to take comprehensive measures to prevent and control the spread of the epidemic. ",
+                    userAnswer: answers.question1
+                },
+                {
+                    question: "Q2. The virus spreads linearly, and infected cases will rise at a steady rate.",
+                    correctAnswer: "B",
+                    explanation: "Viral spread is typically exponential rather than linear, meaning that the number of cases can increase rapidly if not controlled. In exponential growth, each infected individual can infect multiple others, leading to a sharp rise in the number of cases over time. ",
+                    userAnswer: answers.question2
+                },
+                {
+                    question: "Q3. What happens when a susceptible agent comes into contact with a carrier in the epidemic simulation?",
+                    correctAnswer: "B",
+                    explanation: "When a susceptible agent comes into contact with a carrier in the epidemic simulation, the susceptible agent gets infected. This simulates how infectious diseases spread through interactions between individuals.",
+                    userAnswer: answers.question3
+                },
+                {
+                    question: "Q4. How do transmission and mortality relate in the epidemic simulation?",
+                    correctAnswer: "A",
+                    explanation: "In the epidemic simulation, carriers moving around can cause susceptible agents to get infected. This can lead to different outcomes for the infected agents, such as death or recovery, depending on the virus's characteristics and the effectiveness of interventions. ",
+                    userAnswer: answers.question4
+                },
+                {
+                    question: "Q5. Which of the following best describes the spread of an epidemic?",
+                    correctAnswer: "B",
+                    explanation: "The spread of an epidemic is typically exponential, meaning that the number of cases can increase rapidly if the virus is not controlled. This is because each infected individual can spread the virus to multiple others, leading to a rapid increase in cases.",
+                    userAnswer: answers.question5
+                },
+                {
+                    question: "Q6. How does social distancing affect the epidemic spread in the simulation?",
+                    correctAnswer: "C",
+                    explanation: "Social distancing reduces the number of interactions between susceptible and carrier agents, thereby lowering the transmission rate of the virus. ",
+                    userAnswer: answers.question6
+                },
+                {
+                    question: "Q7. What is the outcome of a higher transmission rate in the epidemic simulation?",
+                    correctAnswer: "B",
+                    explanation: "A higher transmission rate means that the virus spreads more quickly, leading to a faster increase in the number of infected susceptible agents. ",
+                    userAnswer: answers.question7
+                },
+                {
+                    question: "Q8. What outcome is observed when effective quarantine measures are implemented in the simulation?",
+                    correctAnswer: "A",
+                    explanation: " Effective quarantine measures lead to a reduction in the spread of infection among agents by isolating carriers and preventing them from interacting with susceptible individuals.  ",
+                    userAnswer: answers.question8
+                }
+            ];
+
+            let score = 0;
+            questions.forEach((q, index) => {
+                if (q.userAnswer === q.correctAnswer) {
+                    score++;
+                }
+                questionsDiv.innerHTML += `
+                    <div class="question_section">
+                        <h4>${q.question}</h4>
+                        <p><strong>Your answer:</strong> ${q.userAnswer}</p>
+                        <p><strong>Correct answer:</strong> ${q.correctAnswer}</p>
+                        <p><strong>Explanation:</strong> ${q.explanation}</p>
+                    </div>
+                `;
+            });
+
+
+             // Display remarks
+             let remarks = '';
+            if (score >= 7) {
+                remarks = 'Excellent!';
+            } else if (score >= 4) {
+                remarks = 'Good job!';
+            } else {
+                remarks = 'Play again.';
             }
-            userAnswersDiv.innerHTML += '</ul>';
-
-            // Display correct answers
-            correctAnswersDiv.innerHTML = '<h4>Correct Answers:</h4><ul class="result_list">';
-            correctAnswersDiv.innerHTML += '<li>Question 1: B) Epidemic progression</li>';
-            correctAnswersDiv.innerHTML += '<li>Question 2: C) Natural Remedies</li>';
-            correctAnswersDiv.innerHTML += '<li>Question 3: B) The susceptible turtle gets infected</li>';
-            correctAnswersDiv.innerHTML += '</ul>';
+            scoreDiv.innerHTML = `<h1>Your Score</h1><p class=final_score><b>${score} out of 8</b> - ${remarks}</p>`;
         }
+    
 
         // Call function to display results
         displayResults();
