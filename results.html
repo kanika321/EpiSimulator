@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Results</title>
     <style>
-        /* General body styles */
         body {
             font-family: Arial, sans-serif;
             line-height: 1.6;
@@ -13,8 +12,7 @@
             padding: 0;
             background-color: #BACFF3;
         }
-
-        /* Container for the results */
+        
         .results_container {
             max-width: 1320px;;
             margin: 17px auto;
@@ -24,14 +22,12 @@
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
-        /* Heading styles */
         .results_container h1 {
             margin-top: 0;
             color: black;
             text-align: center; 
         }
 
-        /* Result list styles */
         .result_list {
             list-style-type: none;
             padding: 0;
@@ -59,8 +55,6 @@
             font-size: 16px;
         }
 
-
-       
     </style>
 </head>
 <body>
@@ -80,12 +74,13 @@
             }
             return answers;
         }
-
+        
+        // display results
         function displayResults() {
-            const answers = getQueryParams();
-            const questionsDiv = document.getElementById('questions');
-            const scoreDiv = document.getElementById('score');
-            const remarksDiv = document.getElementById('remarks');
+            const answers = getQueryParams(); //user_answers
+            const questionsDiv = document.getElementById('questions'); //questions
+            const scoreDiv = document.getElementById('score'); //score
+            const remarksDiv = document.getElementById('remarks'); //remarks
 
             const questions = [
                 {
@@ -137,7 +132,8 @@
                     userAnswer: answers.question8
                 }
             ];
-
+            
+            // calculate score
             let score = 0;
             questions.forEach((q, index) => {
                 if (q.userAnswer === q.correctAnswer) {
@@ -153,7 +149,6 @@
                 `;
             });
 
-
              // Display remarks
              let remarks = '';
             if (score >= 7) {
@@ -165,7 +160,6 @@
             }
             scoreDiv.innerHTML = `<h1>Your Score</h1><p class=final_score><b>${score} out of 8</b> - ${remarks}</p>`;
         }
-    
 
         // Call function to display results
         displayResults();
