@@ -4,13 +4,10 @@
 This model of the transmission of a virus simulates how infected persons (carriers) can affect the health of an entire population of individuals. It illustrates the effectiveness of public health measures, quarantine, and vaccinations on the spread of the virus. The model is based on NetLogo simulators Virus and epiDEM Basic.
 
 ## HOW IT WORKS
-The model operates with individual agents who randomly wander around the world. Once they come in contact with an infected person, they can contract the virus. The user decides how contagious ("transmission rate") and deadly ("mortality") the virus is and how long it takes for an infected person to become contagious ("incubation period"). The mortality rate impacts the chance of recovery.
-
-The user can set vaccinations and quarantine as public health measures to slow down the spread of the virus. Vaccination rate and effectiveness can be adjusted respectively. The quarantine setting stops people from moving. It is also possible to adjust how many people there are ("population size") and how fast they move ("mobility").
-
-The colors indicate the health status of the person. People can be carriers (orange; infected and contagious, but not yet sick), sick (red), susceptible (green; not yet infected with the virus), recovered (blue; recovered from the sickness), or dead (black). Once recovered, the agents are completely immune to the virus.
-
-The graphs and boxes to the right depict the development of the health status of the agents over time.
+- The model operates with individual agents who randomly wander around the world. Once they come in contact with an infected person, they can contract the virus. The user decides how contagious ("transmission rate") and deadly ("mortality") the virus is and how long it takes for an infected person to become contagious ("incubation period"). The mortality rate impacts the chance of recovery.
+- The user can set vaccinations and quarantine as public health measures to slow down the spread of the virus. Vaccination rate and effectiveness can be adjusted respectively. The quarantine setting stops people from moving. It is also possible to adjust how many people there are ("population size") and how fast they move ("mobility").
+- The colors indicate the health status of the person. People can be carriers (orange; infected and contagious, but not yet sick), sick (red), susceptible (green; not yet infected with the virus), recovered (blue; recovered from the sickness), or dead (black). Once recovered, the agents are completely immune to the virus.
+- The graphs and boxes to the right depict the development of the health status of the agents over time.
 
 ## HOW TO USE IT
 - **SETUP**: Creates a scenario according to the chosen parameter values. After setting up the model, pushing the GO button will run the simulation. After each change in parameters, the SETUP button needs to be pressed to apply the changes. RESET will set all values to the default values.
