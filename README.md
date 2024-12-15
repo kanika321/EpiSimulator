@@ -86,3 +86,7 @@ This epidemic simulator features both emergent and sequential processes. Disease
 
 <img width="1427" alt="image" src="https://github.com/user-attachments/assets/a33fec7f-06b2-426c-a180-797aa34ef502">
 
+# Contributors
+- Kanika Gupta
+- Divya Gupta
+
