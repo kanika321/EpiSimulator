@@ -1,4 +1,4 @@
-# EpiStimulator
+# EpiSimulator
 
 ## WHAT IS IT?
 This model of the transmission of a virus simulates how infected persons (carriers) can affect the health of an entire population of individuals. It illustrates the effectiveness of public health measures, quarantine, and vaccinations on the spread of the virus. The model is based on NetLogo simulators Virus and epiDEM Basic.
